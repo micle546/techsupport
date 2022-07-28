@@ -7,9 +7,11 @@ jobs:
     example_job:
         runs_on: ubuntu-latest
         steps:
+
             - name: Say Hello
-            - run: |
-                echo Hello!
+                run: |
+                    echo Hello!
+
             - name: Say Goodbye
-            - run: |
-                echo Goodbye!            
+                run: |
+                    echo Goodbye!            
