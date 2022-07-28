@@ -1,17 +1,17 @@
 name: Example Workflow
 
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-    example_job:
-        runs-on: ubuntu-latest
-        steps:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
 
-            - name: Say Hello
-                run: |
-                    echo Hello!
+      - name: Say Hello
+        run: |
+          echo Hello!
 
-            - name: Say Goodbye
-                run: |
-                    echo Goodbye!            
+      - name: Say Goodbye
+        run:    |
+          echo Goodbye!            
