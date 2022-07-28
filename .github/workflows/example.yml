@@ -1,0 +1,15 @@
+name: Example Workflow
+
+on:
+    workflow_dispatch:
+
+jobs:
+    example_job:
+        runs_on: ubuntu-latest
+        steps:
+            - name: Say Hello
+            - run: |
+                echo Hello!
+            - name: Say Goodbye
+            - run: |
+                echo Goodbye!            

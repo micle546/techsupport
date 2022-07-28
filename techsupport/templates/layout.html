@@ -27,11 +27,17 @@
                     <li><a href="{{ url_for('about') }}">About</a></li>
                     <li><a href="{{ url_for('contact') }}">Contact</a></li>
                 </ul>
+                {% if username == Null %}
+                <p class="navbar-text navbar-right"><a href="{{ url_for('signup') }}" class="navbar-link">Log In / Sign up</a></p>
+                {% else %}
+                <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">{{ username }}</a></p>
+                {% endif %}
             </div>
         </div>
     </div>
 
     <div class="container body-content">
+        <p>{{username}}</p>
         {% block content %}{% endblock %}
         <hr />
         <footer>

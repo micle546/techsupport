@@ -31,11 +31,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="runserver.py" />
+    <Compile Include="techsupport\user\models.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="techsupport\user\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="techsupport\user\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="techsupport\__init__.py" />
     <Compile Include="techsupport\views.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include=".github\" />
+    <Folder Include=".github\workflows\" />
     <Folder Include="techsupport\" />
+    <Folder Include="techsupport\user\" />
     <Folder Include="techsupport\static\" />
     <Folder Include="techsupport\static\content\" />
     <Folder Include="techsupport\static\fonts\" />
@@ -43,6 +55,7 @@
     <Folder Include="techsupport\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".github\workflows\example.yml" />
     <Content Include=".gitignore" />
     <Content Include="LICENSE" />
     <Content Include="README.md" />
@@ -73,6 +86,7 @@
     <Content Include="techsupport\templates\contact.html" />
     <Content Include="techsupport\templates\index.html" />
     <Content Include="techsupport\templates\layout.html" />
+    <Content Include="techsupport\templates\signup.html" />
     <Content Include="techsupport\templates\tickets.html" />
   </ItemGroup>
   <ItemGroup>
