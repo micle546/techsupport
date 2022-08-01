@@ -26,6 +26,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: dev
 
       - name: Say Hello
         run: |
@@ -44,7 +46,29 @@ jobs:
           export TARGET=$USER@$HOST
           export RUN="ssh $SSH_OPTIONS $TARGET"
           export COPY="scp $SSH_OPTIONS"
+          
           $RUNX ls -la
+
+      - name: Transfer a file
+        run: |
+          # set up utilities
+          export TARGET=$USER@$HOST
+          export RUN="ssh $SSH_OPTIONS $TARGET"
+          export COPY="scp $SSH_OPTIONS"
+
+          echo "---"
+          $RUNX ls -la
+          echo "---"
+          $COPY -r techsupport $USER@$HOST:.
+          $COPY requirements.txt $USER@$HOST:.
+          $COPY runserver.py $USER@$HOST:.
+          echo "---"
+          $RUNX ls -la
+          echo "---"
+
+      - name: pull-dev
+        run: |
+          $RUNX git pull
 
       - name: Say Goodbye
         run:    |
