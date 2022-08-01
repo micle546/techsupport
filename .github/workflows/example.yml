@@ -1,4 +1,4 @@
-name: Example Workflow
+name: Autodeploy to Digital Ocean
 
 on:
   push:
@@ -6,10 +6,23 @@ on:
 
   workflow_dispatch:
 
+env:
+  HOST: 137.184.159.159
+  USER: root
+  SSH_OPTIONS: -i ~/.ssh/id_digital_ocean_rsa -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
+  RUNX: ssh -i ~/.ssh/id_digital_ocean_rsa -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@161.35.118.112
+
 jobs:
   example_job:
     runs-on: ubuntu-latest
     steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.ID_DIGITAL_OCEAN_RSA }}
+          name: id_digital_ocean_rsa
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -24,6 +37,14 @@ jobs:
           pwd
           echo '$ ls -la'
           ls -la
+
+      - name: Look Around On The Server
+        run: |
+          # set up utilities
+          export TARGET=$USER@$HOST
+          export RUN="ssh $SSH_OPTIONS $TARGET"
+          export COPY="scp $SSH_OPTIONS"
+          $RUNX ls -la
 
       - name: Say Goodbye
         run:    |
