@@ -49,7 +49,16 @@ jobs:
           
           $RUNX ls -la
 
-      - name: Transfer a file
+      - name: Stop Server
+        run: |
+          # set up utilities
+          export TARGET=$USER@$HOST
+          export RUN="ssh $SSH_OPTIONS $TARGET"
+          export COPY="scp $SSH_OPTIONS"
+
+          $RUNX
+
+      - name: Transfer files
         run: |
           # set up utilities
           export TARGET=$USER@$HOST
@@ -66,9 +75,17 @@ jobs:
           $RUNX ls -la
           echo "---"
 
-      - name: pull-dev
+      - name: Start Server
         run: |
-          $RUNX git pull
+          # set up utilities
+          export TARGET=$USER@$HOST
+          export RUN="ssh $SSH_OPTIONS $TARGET"
+          export COPY="scp $SSH_OPTIONS"
+
+          $RUNX chmod +x runserver.py
+          $RUNX pip install -r requirements.txt 
+
+
 
       - name: Say Goodbye
         run:    |

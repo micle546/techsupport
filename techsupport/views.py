@@ -8,7 +8,8 @@ from . import app
 
 #Routes
 
-from .user import views
+from .user import user_views
+
 
 @app.route('/')
 @app.route('/home/')
@@ -41,6 +42,7 @@ def about():
     )
 
 @app.route('/tickets/')
+#@user_views.login_required
 def get_tickets():
     """Renders the ticket page."""
     return render_template(

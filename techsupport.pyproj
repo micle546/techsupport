@@ -31,10 +31,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="runserver.py" />
+    <Compile Include="techsupport\tickets\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="techsupport\user\models.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="techsupport\user\views.py">
+    <Compile Include="techsupport\user\user_views.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="techsupport\user\__init__.py">
@@ -47,6 +50,7 @@
     <Folder Include=".github\" />
     <Folder Include=".github\workflows\" />
     <Folder Include="techsupport\" />
+    <Folder Include="techsupport\tickets\" />
     <Folder Include="techsupport\user\" />
     <Folder Include="techsupport\static\" />
     <Folder Include="techsupport\static\content\" />
@@ -81,12 +85,14 @@
     <Content Include="techsupport\static\scripts\modernizr-2.6.2.js" />
     <Content Include="techsupport\static\scripts\respond.js" />
     <Content Include="techsupport\static\scripts\respond.min.js" />
+    <Content Include="techsupport\static\scripts\scripts.js" />
     <Content Include="techsupport\static\scripts\_references.js" />
     <Content Include="techsupport\templates\about.html" />
     <Content Include="techsupport\templates\contact.html" />
     <Content Include="techsupport\templates\index.html" />
     <Content Include="techsupport\templates\layout.html" />
-    <Content Include="techsupport\templates\signup.html" />
+    <Content Include="techsupport\templates\page.html" />
+    <Content Include="techsupport\templates\login.html" />
     <Content Include="techsupport\templates\tickets.html" />
   </ItemGroup>
   <ItemGroup>
