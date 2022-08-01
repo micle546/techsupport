@@ -10,7 +10,7 @@ env:
   HOST: 137.184.159.159
   USER: root
   SSH_OPTIONS: -i ~/.ssh/id_digital_ocean_rsa -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
-  RUNX: ssh -i ~/.ssh/id_digital_ocean_rsa -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@161.35.118.112
+  RUNX: ssh -i ~/.ssh/id_digital_ocean_rsa -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@137.184.159.159
 
 jobs:
   example_job:
