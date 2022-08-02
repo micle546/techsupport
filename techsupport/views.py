@@ -40,6 +40,6 @@ def about():
         'about.html',
         title='About',
         year=datetime.now().year,
-        message='Your application description page.'
+        message='Kent State University at Stark Kelpdesk System'
     )
 

@@ -19,7 +19,7 @@ def login_required(f):
 #routes
 @app.route('/user/login/', methods=['GET'])
 def get_login():
-    return render_template('login.html', year=datetime.now().year)
+    return render_template('login.html', title='Login', year=datetime.now().year)
 
 @app.route('/user/signup_user/', methods=['POST'])
 def post_signup():

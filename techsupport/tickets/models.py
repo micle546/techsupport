@@ -9,13 +9,13 @@ from bson import ObjectId
 
 class Ticket():
     def fetch_ticket(id):
-        print('------mark----')
+        #print('------mark----')
 
         result = ticket_db.find_one({'_id': id})
 
-        print('***********')
-        print(result)
-        print('***********')
+        #print('***********')
+        #print(result)
+        #print('***********')
 
         ticket = {
         "_id": str(result['_id']),
@@ -27,16 +27,16 @@ class Ticket():
         "desc": result['desc'],
         }
 
-        print('***********')
-        print(ticket)
-        print('***********')
+        #print('***********')
+        #print(ticket)
+        #print('***********')
 
-        return render_template('edit_ticket.html', ticket=ticket, year=datetime.now().year)
+        return render_template('edit_ticket.html', title='Edit Ticket', ticket=ticket, year=datetime.now().year)
 
     def fetch_tickets():
         
         for x in ticket_db.find():
-            print(x)
+            #print(x)
             x['_id'] = str(x['_id'])
         return ticket_db.find()        
 
@@ -74,9 +74,9 @@ class Ticket():
             }
         #print(ticket['_id'])
         x = ticket_db.find_one({'_id': ticket['_id']})
-        print('------------')
-        print(x)
-        print('------------')
+        #print('------------')
+        #print(x)
+        #print('------------')
         #return jsonify(x), 418
 
         result = ticket_db.update_one({'_id': ObjectId(ticket['_id'])}, {
@@ -93,9 +93,9 @@ class Ticket():
                                 )
         if result.modified_count == 1:
 
-            print('------------')
-            print(ticket)
-            print('------------')
+            #print('------------')
+            #print(ticket)
+            #print('------------')
             return jsonify(ticket), 200
 
         return jsonify({ "error": "Process failed" }), 400

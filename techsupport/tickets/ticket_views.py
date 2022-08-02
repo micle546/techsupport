@@ -20,12 +20,12 @@ def login_required(f):
 @app.route('/tickets/', methods=['GET'])
 @login_required
 def get_tickets():
-    return render_template('tickets.html', ticket_list=get_tickets_list(), year=datetime.now().year)
+    return render_template('tickets.html', title='View Tickets', ticket_list=get_tickets_list(), year=datetime.now().year)
 
 @app.route('/tickets/create/', methods=['GET'])
 @login_required
 def get_create():
-    return render_template('create_ticket.html', year=datetime.now().year)
+    return render_template('create_ticket.html', title='Create Ticket', year=datetime.now().year)
 
 @app.route('/tickets/create/', methods=['POST'])
 @login_required
