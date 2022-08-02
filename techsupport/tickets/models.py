@@ -25,6 +25,9 @@ class Ticket():
         "email": result['email'],
         "title": result['title'],
         "desc": result['desc'],
+        "modified_user": result['modified_user'],
+        "create_time": result['create_time'],
+        "modified_time": result['modified_time']
         }
 
         #print('***********')
@@ -51,6 +54,9 @@ class Ticket():
             "email": request.form.get('email'),
             "title": request.form.get('title'),
             "desc": request.form.get('desc'),
+            "modified_user": session['user']['email'],
+            "create_time": datetime.now().strftime('%x %X'),
+            "modified_time": datetime.now().strftime('%x %X')
             }
 
 
@@ -71,12 +77,14 @@ class Ticket():
             "email": request.form.get('email'),
             "title": request.form.get('title'),
             "desc": request.form.get('desc'),
+            "create_time": request.form.get('create_time'),
+            "modified_time": datetime.now().strftime('%x %X')
             }
         #print(ticket['_id'])
         x = ticket_db.find_one({'_id': ticket['_id']})
-        #print('------------')
-        #print(x)
-        #print('------------')
+        print('------------')
+        print(x)
+        print('------------')
         #return jsonify(x), 418
 
         result = ticket_db.update_one({'_id': ObjectId(ticket['_id'])}, {
@@ -87,7 +95,10 @@ class Ticket():
                     'name':ticket['name'],
                     'email':ticket['email'],
                     'title':ticket['title'],
-                    'desc':ticket['desc']
+                    'desc':ticket['desc'],
+                    "modified_user": session['user']['email'],
+                    'create_time':ticket['create_time'],
+                    'modified_time':datetime.now().strftime('%x %X')
                     }
             }
                                 )

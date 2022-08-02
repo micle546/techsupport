@@ -25,7 +25,7 @@ def get_tickets():
 @app.route('/tickets/create/', methods=['GET'])
 @login_required
 def get_create():
-    return render_template('create_ticket.html', title='Create Ticket', year=datetime.now().year)
+    return render_template('create_ticket.html', title='Create Ticket', year=datetime.now().year, time_now=datetime.now().strftime('%x %X'))
 
 @app.route('/tickets/create/', methods=['POST'])
 @login_required
