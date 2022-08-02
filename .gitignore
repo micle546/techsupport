@@ -423,3 +423,6 @@ htmlcov/
 .coverage
 .coverage.*
 *,cover
+
+# Mongita
+.[Mm]ongita/
