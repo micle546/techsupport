@@ -3,7 +3,7 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
+from flask import render_template, redirect
 from . import app
 
 #Routes
@@ -15,6 +15,7 @@ from .tickets import ticket_views
 @app.route('/')
 @app.route('/home/')
 def home():
+    return redirect('/tickets')
     """Renders the home page."""
     return render_template(
         'index.html',
