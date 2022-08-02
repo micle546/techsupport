@@ -3,17 +3,18 @@ body {
     padding-bottom: 20px;
 }
 
- Set padding to keep content from hitting the edges 
+/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
- Set width on the form input elements since they're 100% wide by default 
+/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
+    /*max-width: 280px;*/
+    resize: vertical;
 }
 
 /* styles for validation helpers */
@@ -111,10 +112,21 @@ p {
     display: flex;
 }
 
+
+
 .card {
     margin: 0 30px 60px;
     padding: 20px 40px;
     width: 460px;
+    box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
+    border-radius: 5px;
+    background: var(--white);
+}
+
+.card-lg {
+    margin: 0 30px 60px;
+    padding: 20px 40px;
+    /*width: 460px;*/
     box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
     border-radius: 5px;
     background: var(--white);
@@ -173,6 +185,29 @@ label {
         outline: none;
     }
 
+.field-lg {
+    margin: 0 0 24px;
+    padding: 11px 16px 9px;
+    width: 100%;
+    
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--almost-black);
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    display: block;
+    background: var(--almost-white);
+    transition: border-color .15s ease;
+    scroll-behavior: auto;
+    
+}
+
+    .field-lg:focus {
+        border-color: var(--grey-medium);
+        outline: none;
+    }
+
 .error {
     margin: 0;
     font-size: 16px;
@@ -221,4 +256,11 @@ label {
 input[type=submit] {
     margin: 34px auto 24px;
     display: block;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+field[disabled] .field {
+    background: var(--grey) !important;
+    opacity: 1 !important;
 }

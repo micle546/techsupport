@@ -11,7 +11,9 @@ app.secret_key = b'\xf7\xd1\xd6\x80\xc6Vl\xd3\x0bs5\xf2*a3\x03'
 #database
 client = MongitaClientDisk(host="./.mongita")
 db = client.db
-users = db.users
+user_db = db.users
+ticket_db = db.tickets
+#counter_db = db.counters
 
 from . import views
 #import techsupport.views

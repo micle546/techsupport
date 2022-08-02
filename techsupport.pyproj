@@ -31,6 +31,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="runserver.py" />
+    <Compile Include="techsupport\tickets\models.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="techsupport\tickets\ticket_views.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="techsupport\tickets\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -89,6 +95,8 @@
     <Content Include="techsupport\static\scripts\_references.js" />
     <Content Include="techsupport\templates\about.html" />
     <Content Include="techsupport\templates\contact.html" />
+    <Content Include="techsupport\templates\edit_ticket.html" />
+    <Content Include="techsupport\templates\create_ticket.html" />
     <Content Include="techsupport\templates\index.html" />
     <Content Include="techsupport\templates\layout.html" />
     <Content Include="techsupport\templates\page.html" />

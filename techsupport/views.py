@@ -9,6 +9,7 @@ from . import app
 #Routes
 
 from .user import user_views
+from .tickets import ticket_views
 
 
 @app.route('/')
@@ -41,13 +42,3 @@ def about():
         message='Your application description page.'
     )
 
-@app.route('/tickets/')
-#@user_views.login_required
-def get_tickets():
-    """Renders the ticket page."""
-    return render_template(
-        'tickets.html',
-        title='Tickets',
-        year=datetime.now().year,
-        message='Test.'
-    )

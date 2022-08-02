@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-lg">
+
+                <h1 class="center">Create a Ticket</h1>
+
+                <form name="create_ticket">
+                    
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label for="id">ID</label>
+                            <input type="text" name="id" class="field" placeholder="New ID" readonly />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="assigned_to">Assigned To</label>
+                            <input type="text" name="assigned_to" value="Unassigned" class="field" readonly />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ticket_status">Status</label>
+                            <input type="text" name="ticket_status" value="Open" class="field" readonly />
+                        </div>
+
+                        <!--<div class="col-md-4">
+                            <label for="status">Status</label>
+                            <select id="status" class="field" disabled readonly>
+                                <option>Open</option>
+                                <option>Closed</option>
+                                <option>On-hold</option>
+                                <option>Waiting on Client</option>
+                            </select>
+                        </div>-->
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label for="email">Created by</label>
+                            <input type="text" name="email" value="{{session['user']['email']}}" class="field" readonly required />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="field" value="{{session['user']['name']}}" readonly required />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="placeholder">Placeholder</label>
+                            <input type="text" name="placeholder" class="field" readonly required />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" class="field" required />
+                    </div>
+                    <div>
+                        <label for="desc">Description</label>
+                        <textarea name="desc" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <!--<label for="password">Password</label>
+                    <input type="password" name="password" class="field" required />-->
+
+                    <p class="error error--hidden">test</p>
+
+                    <input type="submit" value="Create Ticket" class="btn" />
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

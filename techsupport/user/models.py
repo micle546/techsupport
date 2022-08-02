@@ -1,7 +1,6 @@
-from asyncio import start_server
 import json
 from urllib import request
-from flask import Flask, jsonify, request, session, render_template
+from flask import Flask, jsonify, request, session, render_template, redirect
 from passlib.hash import pbkdf2_sha256
 from .. import db
 
@@ -42,7 +41,8 @@ class User:
 
     def signout(self):
         session.clear()
-        return render_template('index.html')
+        return redirect('/')
+        return render_template('index.html', year=datetime.now().year)
 
     def login(self):
 

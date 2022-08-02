@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask, render_template, session, redirect
 from functools import wraps
 from .. import app
@@ -18,7 +19,7 @@ def login_required(f):
 #routes
 @app.route('/user/login/', methods=['GET'])
 def get_login():
-    return render_template('login.html')
+    return render_template('login.html', year=datetime.now().year)
 
 @app.route('/user/signup_user/', methods=['POST'])
 def post_signup():
@@ -31,10 +32,6 @@ def post_login():
 @app.route('/user/page/', methods=['GET'])
 def page():
     return render_template('page.html')
-
-@app.route('/user/test/', methods=['GET'])
-def testlogin():
-    return render_template('tickets.html', username='test')
 
 @app.route('/user/signout')
 def signout():
